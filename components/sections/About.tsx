@@ -13,7 +13,7 @@ export default function About() {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div>
             <h2 className="text-4xl md:text-5xl font-bold text-excellent-navy-900 mb-6">
-              Especialista em <span className="text-excellent-green-500">Saúde</span>, comprometido com pessoas e resultados
+              Especialista em <span className="text-excellent-green-500">Saúde</span>, comprometida com pessoas e resultados
             </h2>
             <p className="text-lg text-gray-600 mb-6 leading-relaxed">
               A <strong>Excellent Saúde Corretora de Seguros Ltda</strong> oferece soluções personalizadas 
