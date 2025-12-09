@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { FiFacebook, FiInstagram, FiLinkedin, FiYoutube, FiPhone, FiMail, FiMapPin } from 'react-icons/fi'
+import { FiInstagram, FiPhone, FiMail, FiMapPin } from 'react-icons/fi'
 
 export default function Footer() {
   return (
@@ -20,17 +20,8 @@ export default function Footer() {
               Atuamos com ética, empatia e foco total no bem-estar dos nossos clientes.
             </p>
             <div className="flex space-x-4">
-              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-excellent-green-500 transition-colors" aria-label="Facebook">
-                <FiFacebook size={24} />
-              </a>
               <a href="https://www.instagram.com/excellentsaude/" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-excellent-green-500 transition-colors" aria-label="Instagram">
                 <FiInstagram size={24} />
-              </a>
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-excellent-green-500 transition-colors" aria-label="LinkedIn">
-                <FiLinkedin size={24} />
-              </a>
-              <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-excellent-green-500 transition-colors" aria-label="YouTube">
-                <FiYoutube size={24} />
               </a>
             </div>
           </div>

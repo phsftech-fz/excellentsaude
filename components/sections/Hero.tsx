@@ -14,9 +14,26 @@ export default function Hero() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    // Aqui você pode integrar com um serviço de envio de formulário
-    console.log('Formulário enviado:', formData)
-    alert('Cotação solicitada com sucesso! Entraremos em contato em breve.')
+    
+    // Formata a mensagem para WhatsApp
+    let mensagem = '*Nova Solicitação de Cotação*\n\n'
+    mensagem += `*Nome:* ${formData.nome}\n`
+    mensagem += `*E-mail:* ${formData.email}\n`
+    mensagem += `*Telefone:* ${formData.telefone}\n`
+    mensagem += `*Estado:* ${formData.estado}\n`
+    
+    const tipoPlanoMap: { [key: string]: string } = {
+      'coletivo': 'Coletivos por Adesão',
+      'empresarial': 'Empresariais e PME',
+      'individual': 'Individuais e Familiares'
+    }
+    mensagem += `*Tipo de Plano:* ${tipoPlanoMap[formData.tipoPlano] || formData.tipoPlano}\n`
+    
+    // Codifica a mensagem para URL
+    const mensagemEncoded = encodeURIComponent(mensagem)
+    
+    // Redireciona para WhatsApp
+    window.open(`https://wa.me/5551996605080?text=${mensagemEncoded}`, '_blank')
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
@@ -40,7 +57,7 @@ export default function Hero() {
               Corretora de Seguros
             </h1>
             <p className="text-xl text-gray-300 mb-8">
-              Especialista em saúde, comprometido com pessoas e resultados. Soluções personalizadas 
+              Especialista em saúde, comprometida com pessoas e resultados. Soluções personalizadas 
               em planos e seguros de saúde e odontológicos para empresas, órgãos públicos e entidades de autogestão.
             </p>
             

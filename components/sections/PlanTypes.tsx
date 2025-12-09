@@ -29,19 +29,6 @@ const planTypes = [
     color: 'from-blue-500 to-blue-700',
   },
   {
-    icon: FiHeart,
-    title: 'Planos Individuais e Familiares',
-    description: 'Proteção para você e sua família, sem necessidade de CNPJ, com telemedicina, programas de bem-estar e combinações de cobertura (ambulatorial + hospitalar, obstetrícia) e opções de acomodação.',
-    features: [
-      'Sem necessidade de CNPJ',
-      'Telemedicina inclusa',
-      'Programas de bem-estar',
-      'Diversas combinações de cobertura',
-      'Opções de acomodação',
-    ],
-    color: 'from-green-500 to-green-700',
-  },
-  {
     icon: FiBriefcase,
     title: 'Planos Personalizados',
     description: 'Construímos a solução sob medida ao seu perfil e uso esperado: mix de coberturas e rede, acomodação (coletivo/privativo), coparticipação e iniciativas de prevenção — focado em controle de custos e melhor experiência.',
@@ -69,13 +56,13 @@ export default function PlanTypes() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="flex flex-wrap justify-center gap-8">
           {planTypes.map((plan, index) => {
             const Icon = plan.icon
             return (
               <div
                 key={index}
-                className="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100"
+                className="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 w-full max-w-sm md:max-w-md lg:max-w-sm"
               >
                 <div className={`bg-gradient-to-r ${plan.color} p-8 text-white`}>
                   <Icon size={48} className="mb-4" />

@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { FiMenu, FiX, FiPhone, FiMail } from 'react-icons/fi'
+import { FiMenu, FiX, FiPhone } from 'react-icons/fi'
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -68,10 +68,6 @@ export default function Header() {
             <a href="https://wa.me/5551996605080" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 hover:text-excellent-blue-400 transition-colors">
               <FiPhone size={16} />
               <span>WhatsApp</span>
-            </a>
-            <a href="mailto:atendimento@excellentsaude.com.br" className="flex items-center space-x-2 hover:text-excellent-blue-400 transition-colors">
-              <FiMail size={16} />
-              <span>E-mail</span>
             </a>
           </div>
         </div>

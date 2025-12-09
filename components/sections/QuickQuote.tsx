@@ -19,8 +19,30 @@ export default function QuickQuote() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    console.log('Formulário enviado:', formData)
-    alert('Cotação solicitada com sucesso! Entraremos em contato em breve.')
+    
+    // Formata a mensagem para WhatsApp
+    let mensagem = '*Nova Solicitação de Cotação*\n\n'
+    mensagem += `*Nome:* ${formData.nome}\n`
+    mensagem += `*Telefone:* ${formData.telefone}\n`
+    mensagem += `*E-mail:* ${formData.email}\n`
+    mensagem += `*Número de Vidas:* ${formData.numeroVidas}\n`
+    mensagem += `*Perfil:* ${formData.perfil === 'pessoa-fisica' ? 'Pessoa Física' : 'CNPJ/MEI'}\n`
+    
+    if (formData.cnpj) {
+      mensagem += `*CNPJ:* ${formData.cnpj}\n`
+    }
+    
+    mensagem += `*Plano Selecionado:* ${formData.operadora}\n`
+    
+    if (formData.mensagem) {
+      mensagem += `\n*Mensagem:*\n${formData.mensagem}\n`
+    }
+    
+    // Codifica a mensagem para URL
+    const mensagemEncoded = encodeURIComponent(mensagem)
+    
+    // Redireciona para WhatsApp
+    window.open(`https://wa.me/5551996605080?text=${mensagemEncoded}`, '_blank')
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
