@@ -65,7 +65,7 @@ export default function Header() {
       <div className="bg-excellent-navy-800 py-2">
         <div className="container-custom">
           <div className="flex items-center justify-center md:justify-end space-x-6 text-sm">
-            <a href="https://wa.me/5551996605080" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 hover:text-excellent-blue-400 transition-colors">
+            <a href="https://wa.me/5551995567277" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 hover:text-excellent-blue-400 transition-colors">
               <FiPhone size={16} />
               <span>WhatsApp</span>
             </a>

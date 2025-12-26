@@ -14,7 +14,7 @@ export default function ChatWidget() {
       // Aqui você pode integrar com um serviço de chat ao vivo (ex: Tawk.to, Intercom)
       // Por enquanto, redireciona para WhatsApp
       const whatsappMessage = encodeURIComponent(message)
-      window.open(`https://wa.me/5551996605080?text=${whatsappMessage}`, '_blank')
+      window.open(`https://wa.me/5551995567277?text=${whatsappMessage}`, '_blank')
       setMessage('')
       setIsOpen(false)
     }
@@ -59,7 +59,7 @@ export default function ChatWidget() {
             <p className="text-xs text-gray-500 text-center">
               Digite sua mensagem abaixo ou{' '}
               <a
-                href="https://wa.me/5551996605080"
+                href="https://wa.me/5551995567277"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-excellent-blue-600 hover:underline"

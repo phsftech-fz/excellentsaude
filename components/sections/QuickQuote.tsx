@@ -20,29 +20,52 @@ export default function QuickQuote() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     
-    // Formata a mensagem para WhatsApp
-    let mensagem = '*Nova Solicitação de Cotação*\n\n'
-    mensagem += `*Nome:* ${formData.nome}\n`
-    mensagem += `*Telefone:* ${formData.telefone}\n`
-    mensagem += `*E-mail:* ${formData.email}\n`
-    mensagem += `*Número de Vidas:* ${formData.numeroVidas}\n`
-    mensagem += `*Perfil:* ${formData.perfil === 'pessoa-fisica' ? 'Pessoa Física' : 'CNPJ/MEI'}\n`
+    // Formata a mensagem para WhatsApp (com formatação markdown)
+    let mensagemWhatsApp = '*Nova Solicitação de Cotação*\n\n'
+    mensagemWhatsApp += `*Nome:* ${formData.nome}\n`
+    mensagemWhatsApp += `*Telefone:* ${formData.telefone}\n`
+    mensagemWhatsApp += `*E-mail:* ${formData.email}\n`
+    mensagemWhatsApp += `*Número de Vidas:* ${formData.numeroVidas}\n`
+    mensagemWhatsApp += `*Perfil:* ${formData.perfil === 'pessoa-fisica' ? 'Pessoa Física' : 'CNPJ/MEI'}\n`
     
     if (formData.cnpj) {
-      mensagem += `*CNPJ:* ${formData.cnpj}\n`
+      mensagemWhatsApp += `*CNPJ:* ${formData.cnpj}\n`
     }
     
-    mensagem += `*Plano Selecionado:* ${formData.operadora}\n`
+    mensagemWhatsApp += `*Plano Selecionado:* ${formData.operadora}\n`
     
     if (formData.mensagem) {
-      mensagem += `\n*Mensagem:*\n${formData.mensagem}\n`
+      mensagemWhatsApp += `\n*Mensagem:*\n${formData.mensagem}\n`
     }
     
-    // Codifica a mensagem para URL
-    const mensagemEncoded = encodeURIComponent(mensagem)
+    // Formata a mensagem para Email (sem formatação markdown)
+    let mensagemEmail = 'Nova Solicitação de Cotação\n\n'
+    mensagemEmail += `Nome: ${formData.nome}\n`
+    mensagemEmail += `Telefone: ${formData.telefone}\n`
+    mensagemEmail += `E-mail: ${formData.email}\n`
+    mensagemEmail += `Número de Vidas: ${formData.numeroVidas}\n`
+    mensagemEmail += `Perfil: ${formData.perfil === 'pessoa-fisica' ? 'Pessoa Física' : 'CNPJ/MEI'}\n`
+    
+    if (formData.cnpj) {
+      mensagemEmail += `CNPJ: ${formData.cnpj}\n`
+    }
+    
+    mensagemEmail += `Plano Selecionado: ${formData.operadora}\n`
+    
+    if (formData.mensagem) {
+      mensagemEmail += `\nMensagem:\n${formData.mensagem}\n`
+    }
+    
+    // Codifica as mensagens para URL
+    const mensagemWhatsAppEncoded = encodeURIComponent(mensagemWhatsApp)
+    const mensagemEmailEncoded = encodeURIComponent(mensagemEmail)
+    const assuntoEmail = encodeURIComponent('Nova Solicitação de Cotação')
     
     // Redireciona para WhatsApp
-    window.open(`https://wa.me/5551996605080?text=${mensagemEncoded}`, '_blank')
+    window.open(`https://wa.me/5551995567277?text=${mensagemWhatsAppEncoded}`, '_blank')
+    
+    // Redireciona para Email
+    window.open(`mailto:financeiro@excellentsaude.com.br?subject=${assuntoEmail}&body=${mensagemEmailEncoded}`, '_blank')
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
@@ -237,13 +260,13 @@ export default function QuickQuote() {
               <p className="text-center text-gray-600 mb-4">Ou entre em contato diretamente:</p>
               <div className="flex flex-col sm:flex-row items-center justify-center space-y-3 sm:space-y-0 sm:space-x-6">
                 <a
-                  href="https://wa.me/5551996605080"
+                  href="https://wa.me/5551995567277"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center space-x-2 text-excellent-navy-900 hover:text-excellent-green-500 transition-colors"
                 >
                   <FiPhone size={20} />
-                  <span className="font-semibold">WhatsApp: (51) 99660-5080</span>
+                  <span className="font-semibold">WhatsApp: (51) 99556-7277</span>
                 </a>
                 <a
                   href="mailto:atendimento@excellentsaude.com.br"

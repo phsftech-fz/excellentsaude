@@ -15,25 +15,38 @@ export default function Hero() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     
-    // Formata a mensagem para WhatsApp
-    let mensagem = '*Nova Solicitação de Cotação*\n\n'
-    mensagem += `*Nome:* ${formData.nome}\n`
-    mensagem += `*E-mail:* ${formData.email}\n`
-    mensagem += `*Telefone:* ${formData.telefone}\n`
-    mensagem += `*Estado:* ${formData.estado}\n`
-    
     const tipoPlanoMap: { [key: string]: string } = {
       'coletivo': 'Coletivos por Adesão',
       'empresarial': 'Empresariais e PME',
       'individual': 'Individuais e Familiares'
     }
-    mensagem += `*Tipo de Plano:* ${tipoPlanoMap[formData.tipoPlano] || formData.tipoPlano}\n`
     
-    // Codifica a mensagem para URL
-    const mensagemEncoded = encodeURIComponent(mensagem)
+    // Formata a mensagem para WhatsApp (com formatação markdown)
+    let mensagemWhatsApp = '*Nova Solicitação de Cotação*\n\n'
+    mensagemWhatsApp += `*Nome:* ${formData.nome}\n`
+    mensagemWhatsApp += `*E-mail:* ${formData.email}\n`
+    mensagemWhatsApp += `*Telefone:* ${formData.telefone}\n`
+    mensagemWhatsApp += `*Estado:* ${formData.estado}\n`
+    mensagemWhatsApp += `*Tipo de Plano:* ${tipoPlanoMap[formData.tipoPlano] || formData.tipoPlano}\n`
+    
+    // Formata a mensagem para Email (sem formatação markdown)
+    let mensagemEmail = 'Nova Solicitação de Cotação\n\n'
+    mensagemEmail += `Nome: ${formData.nome}\n`
+    mensagemEmail += `E-mail: ${formData.email}\n`
+    mensagemEmail += `Telefone: ${formData.telefone}\n`
+    mensagemEmail += `Estado: ${formData.estado}\n`
+    mensagemEmail += `Tipo de Plano: ${tipoPlanoMap[formData.tipoPlano] || formData.tipoPlano}\n`
+    
+    // Codifica as mensagens para URL
+    const mensagemWhatsAppEncoded = encodeURIComponent(mensagemWhatsApp)
+    const mensagemEmailEncoded = encodeURIComponent(mensagemEmail)
+    const assuntoEmail = encodeURIComponent('Nova Solicitação de Cotação')
     
     // Redireciona para WhatsApp
-    window.open(`https://wa.me/5551996605080?text=${mensagemEncoded}`, '_blank')
+    window.open(`https://wa.me/5551995567277?text=${mensagemWhatsAppEncoded}`, '_blank')
+    
+    // Redireciona para Email
+    window.open(`mailto:financeiro@excellentsaude.com.br?subject=${assuntoEmail}&body=${mensagemEmailEncoded}`, '_blank')
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
