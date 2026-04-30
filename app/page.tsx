@@ -3,6 +3,7 @@ import Services from '@/components/sections/Services'
 import PlanTypes from '@/components/sections/PlanTypes'
 import Operadoras from '@/components/sections/Operadoras'
 import OperadorasDetalhes from '@/components/sections/OperadorasDetalhes'
+import OdontoSulAmerica from '@/components/sections/OdontoSulAmerica'
 import About from '@/components/sections/About'
 import Testimonials from '@/components/sections/Testimonials'
 import QuickQuote from '@/components/sections/QuickQuote'
@@ -15,6 +16,7 @@ export default function Home() {
       <PlanTypes />
       <Operadoras />
       <OperadorasDetalhes />
+      <OdontoSulAmerica />
       <About />
       <Testimonials />
       <QuickQuote />
