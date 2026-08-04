@@ -27,11 +27,11 @@ export default function About() {
             <p className="text-sm text-gray-500 mb-6">
               <strong>Registro na SUSEP:</strong> nº 202083498
             </p>
-            <div className="flex flex-wrap gap-6">
+            <div className="flex flex-wrap justify-center lg:justify-start gap-6">
               {stats.map((stat, index) => {
                 const Icon = stat.icon
                 return (
-                  <div key={index} className="text-center">
+                  <div key={index} className="text-center w-[calc(50%-0.75rem)] sm:w-auto">
                     <Icon className="text-excellent-blue-500 mx-auto mb-2" size={32} />
                     <div className="text-3xl font-bold text-excellent-navy-900">{stat.number}</div>
                     <div className="text-gray-600 text-sm">{stat.label}</div>
