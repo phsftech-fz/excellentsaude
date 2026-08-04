@@ -258,7 +258,7 @@ export default function QuickQuote() {
 
             <div className="mt-8 pt-8 border-t border-gray-200">
               <p className="text-center text-gray-600 mb-4">Ou entre em contato diretamente:</p>
-              <div className="flex flex-col sm:flex-row items-center justify-center space-y-3 sm:space-y-0 sm:space-x-6">
+              <div className="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-3 sm:gap-6">
                 <a
                   href="https://wa.me/5551995567277"
                   target="_blank"
@@ -267,6 +267,15 @@ export default function QuickQuote() {
                 >
                   <FiPhone size={20} />
                   <span className="font-semibold">WhatsApp: (51) 99556-7277</span>
+                </a>
+                <a
+                  href="https://wa.me/5551997823523"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center space-x-2 text-excellent-navy-900 hover:text-excellent-green-500 transition-colors"
+                >
+                  <FiPhone size={20} />
+                  <span className="font-semibold">WhatsApp: (51) 99782-3523</span>
                 </a>
                 <a
                   href="mailto:atendimento@excellentsaude.com.br"

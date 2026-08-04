@@ -78,7 +78,11 @@ export default function Footer() {
               </li>
               <li className="flex items-center space-x-2">
                 <FiPhone className="text-excellent-green-500" size={18} />
-                <a href="https://wa.me/5551995567277" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-excellent-green-500 transition-colors text-sm">WhatsApp</a>
+                <a href="https://wa.me/5551995567277" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-excellent-green-500 transition-colors text-sm">WhatsApp: (51) 99556-7277</a>
+              </li>
+              <li className="flex items-center space-x-2">
+                <FiPhone className="text-excellent-green-500" size={18} />
+                <a href="https://wa.me/5551997823523" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-excellent-green-500 transition-colors text-sm">WhatsApp: (51) 99782-3523</a>
               </li>
               <li className="flex items-center space-x-2">
                 <FiMail className="text-excellent-green-500" size={18} />
