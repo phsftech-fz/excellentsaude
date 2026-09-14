@@ -38,6 +38,11 @@ npm start
   - Depoimentos de clientes
   - Formulário completo de cotação
 
+- **/medsenior** - Landing page de conversão MedSênior (layout próprio em `app/(landing)`)
+  - Conteúdo editável em `lib/medsenior.ts` (planos, FAQ, textos legais, razão social/CNPJ)
+  - Selo "Corretora autorizada": colocar o arquivo recebido do Gestor Comercial em `public/medsenior/selo-autorizada.png`
+  - Testes: `npm test`
+
 ### Componentes
 
 - `Header` - Cabeçalho com navegação responsiva
