@@ -42,7 +42,7 @@
     @apply inline-flex items-center justify-center gap-2 min-h-[52px] px-6 rounded-full font-bold text-base leading-none transition-all duration-200 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-ms-lime/60;
   }
   .ms-btn-wa {
-    @apply bg-wa text-white shadow-lg shadow-wa/30 hover:bg-[#1fbf5b] hover:-translate-y-0.5;
+    @apply bg-wa text-ms-green-900 shadow-lg shadow-wa/30 hover:bg-[#1fbf5b] hover:-translate-y-0.5;
   }
   .ms-btn-primary {
     @apply bg-ms-green-700 text-white shadow-lg shadow-ms-green-700/25 hover:bg-ms-green-600 hover:-translate-y-0.5;
@@ -54,7 +54,7 @@
     @apply bg-white rounded-3xl rounded-tl-none border border-ms-green-100 shadow-sm;
   }
   .ms-eyebrow {
-    @apply inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-ms-green-600;
+    @apply inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-ms-green-700;
   }
   .ms-h2 {
     @apply text-3xl md:text-4xl font-extrabold text-ms-green-900 leading-tight;

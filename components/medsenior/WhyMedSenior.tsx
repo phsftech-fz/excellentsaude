@@ -23,7 +23,7 @@ export default function WhyMedSenior() {
             <SectionHeading
               id="why-title"
               eyebrow="Por que MedSênior"
-              title="Uma operadora criada para cuidar de quem já passou dos 44"
+              title="Uma operadora criada para cuidar de quem tem a partir de 44 anos"
               lead="Desde 2010 a MedSênior faz medicina preventiva de verdade: acompanha sua saúde de perto, com equipe própria, para você viver mais e melhor."
             />
           </Reveal>

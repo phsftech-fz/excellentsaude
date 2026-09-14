@@ -11,13 +11,15 @@ export default function HowItWorks() {
         </Reveal>
         <ol className="mt-12 grid gap-6 md:grid-cols-3">
           {PASSOS.map((p, i) => (
-            <Reveal key={p.titulo} delay={i * 100} className="h-full">
-              <li className="h-full rounded-3xl rounded-tl-none bg-white/5 p-6 ring-1 ring-white/10 md:p-8">
-                <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-ms-lime text-xl font-extrabold text-ms-green-900">{i + 1}</span>
-                <h3 className="mt-5 text-xl font-bold">{p.titulo}</h3>
-                <p className="mt-2 leading-relaxed text-ms-green-100">{p.texto}</p>
-              </li>
-            </Reveal>
+            <li key={p.titulo} className="h-full">
+              <Reveal delay={i * 100} className="h-full">
+                <div className="h-full rounded-3xl rounded-tl-none bg-white/5 p-6 ring-1 ring-white/10 md:p-8">
+                  <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-ms-lime text-xl font-extrabold text-ms-green-900">{i + 1}</span>
+                  <h3 className="mt-5 text-xl font-bold">{p.titulo}</h3>
+                  <p className="mt-2 leading-relaxed text-ms-green-100">{p.texto}</p>
+                </div>
+              </Reveal>
+            </li>
           ))}
         </ol>
       </div>

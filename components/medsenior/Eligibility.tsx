@@ -14,7 +14,7 @@ export default function Eligibility() {
           <SectionHeading
             id="elig-title"
             eyebrow="Quem pode aderir"
-            title="Planos por adesão: basta ter a partir de 44 anos e vínculo com uma entidade de classe"
+            title="Planos por adesão: para quem tem a partir de 44 anos e vínculo com uma entidade de classe"
             lead="A adesão é feita por meio de associações parceiras. A Excellent cuida da filiação junto com você — sem burocracia."
           />
         </Reveal>
@@ -43,7 +43,7 @@ export default function Eligibility() {
                 {arpl.documentos.map((d) => <li key={d}>{d}</li>)}
               </ul>
               <details className="mt-4 group">
-                <summary className="cursor-pointer list-none font-semibold text-ms-green-700 underline-offset-4 hover:underline">
+                <summary className="cursor-pointer list-none font-semibold text-ms-green-700 underline-offset-4 hover:underline [&::-webkit-details-marker]:hidden">
                   Ver as {arpl.profissoes.length} profissões aceitas
                 </summary>
                 <ul className="mt-3 flex flex-wrap gap-2">

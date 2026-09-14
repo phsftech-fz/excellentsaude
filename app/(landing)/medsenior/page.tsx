@@ -64,11 +64,13 @@ const jsonLdFaq = {
   })),
 }
 
+const toJsonLd = (obj: unknown) => JSON.stringify(obj).replace(/</g, '\\u003c')
+
 export default function MedSeniorPage() {
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdAgency) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdFaq) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: toJsonLd(jsonLdAgency) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: toJsonLd(jsonLdFaq) }} />
       <LpHeader />
       <main id="topo" className="pb-24 md:pb-0">
         <Hero />

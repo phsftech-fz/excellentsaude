@@ -15,7 +15,7 @@ export default function LpHeader() {
     <header className="sticky top-0 z-40 bg-white/90 backdrop-blur border-b border-ms-green-100">
       <div className="ms-container flex items-center justify-between gap-4 h-20">
         <a href="#topo" className="flex items-center shrink-0" aria-label="Excellent Saúde – início da página">
-          <Image src="/logoexcellent.png.bv.webp" alt="Excellent Saúde" width={180} height={60} className="h-11 w-auto" priority />
+          <Image src="/logoexcellent.png.bv.webp" alt="Excellent Saúde" width={180} height={60} className="h-11 w-auto" />
         </a>
 
         {temSelo ? (

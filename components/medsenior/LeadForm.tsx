@@ -36,8 +36,12 @@ export default function LeadForm({ origem, compact = false, plano }: Props) {
     if (Object.keys(e).length > 0) return
 
     const url = buildWhatsAppUrl({ nome, telefone, faixaEtaria, cidade, temPlano, plano, origem })
-    const win = window.open(url, '_blank', 'noopener,noreferrer')
-    if (!win) window.location.href = url
+    const win = window.open(url, '_blank')
+    if (win) {
+      win.opener = null
+    } else {
+      window.location.href = url
+    }
   }
 
   const inputCls =
@@ -56,6 +60,7 @@ export default function LeadForm({ origem, compact = false, plano }: Props) {
           autoComplete="name"
           value={nome}
           onChange={(ev) => setNome(ev.target.value)}
+          aria-required="true"
           aria-invalid={Boolean(errors.nome)}
           aria-describedby={errors.nome ? `${idPrefix}-nome-err` : undefined}
           className={inputCls}
@@ -75,6 +80,7 @@ export default function LeadForm({ origem, compact = false, plano }: Props) {
             autoComplete="tel"
             value={telefone}
             onChange={(ev) => setTelefone(formatPhone(ev.target.value))}
+            aria-required="true"
             aria-invalid={Boolean(errors.telefone)}
             aria-describedby={errors.telefone ? `${idPrefix}-telefone-err` : undefined}
             className={inputCls}
@@ -90,6 +96,7 @@ export default function LeadForm({ origem, compact = false, plano }: Props) {
             name="faixaEtaria"
             value={faixaEtaria}
             onChange={(ev) => setFaixaEtaria(ev.target.value)}
+            aria-required="true"
             aria-invalid={Boolean(errors.faixaEtaria)}
             aria-describedby={errors.faixaEtaria ? `${idPrefix}-faixa-err` : undefined}
             className={inputCls}

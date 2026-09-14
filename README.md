@@ -40,7 +40,7 @@ npm start
 
 - **/medsenior** - Landing page de conversão MedSênior (layout próprio em `app/(landing)`)
   - Conteúdo editável em `lib/medsenior.ts` (planos, FAQ, textos legais, razão social/CNPJ)
-  - Selo "Corretora autorizada": colocar o arquivo recebido do Gestor Comercial em `public/medsenior/selo-autorizada.png`
+  - Selo "Corretora autorizada": colocar o arquivo recebido do Gestor Comercial em `public/medsenior/selo-autorizada.png` (o selo é lido no build — faça um novo deploy depois de adicionar o arquivo)
   - Testes: `npm test`
 
 ### Componentes

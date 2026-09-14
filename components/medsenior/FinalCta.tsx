@@ -8,7 +8,7 @@ export default function FinalCta() {
       <div className="ms-container relative grid gap-10 lg:grid-cols-2 lg:items-center">
         <Reveal>
           <h2 id="cta-title" className="text-3xl font-extrabold leading-tight md:text-4xl">
-            Pronto para cuidar da sua saúde com quem entende de quem tem a partir de 44 anos?
+            Pronto para cuidar da sua saúde com um plano feito para quem tem a partir de 44 anos?
           </h2>
           <p className="mt-4 text-lg text-ms-green-100">
             Deixe seu contato e receba a cotação da sua faixa etária no WhatsApp. Sem compromisso, sem custo extra.

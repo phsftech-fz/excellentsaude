@@ -18,6 +18,7 @@ export default function LandingLayout({ children }: { children: React.ReactNode 
   return (
     <html lang="pt-BR" className={montserrat.variable}>
       <body className="font-montserrat bg-white text-ms-ink antialiased">
+        <noscript><style>{`.ms-reveal{opacity:1!important;transform:none!important}`}</style></noscript>
         {children}
         <CookieBanner />
       </body>
