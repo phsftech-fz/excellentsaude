@@ -36,12 +36,20 @@ export default function LpHeader() {
             height={400}
             className="hidden md:block h-11 w-11 rounded-lg shrink-0"
           />
+          <span aria-hidden="true" className="hidden md:block h-7 sm:h-8 w-px bg-ms-green-100" />
+          <Image
+            src="/medsenior/logo-assgapa.png"
+            alt="ASSGAPA – Associação de Suboficiais e Sargentos da Guarnição de Aeronáutica de Porto Alegre"
+            width={96}
+            height={96}
+            className="hidden md:block h-11 w-11 shrink-0"
+          />
         </div>
 
         {temSelo ? (
-          <Image src="/medsenior/selo-autorizada.png" alt="Corretora autorizada MedSênior" width={200} height={64} className="hidden lg:block h-12 w-auto" />
+          <Image src="/medsenior/selo-autorizada.png" alt="Corretora autorizada MedSênior" width={200} height={64} className="hidden xl:block h-12 w-auto" />
         ) : (
-          <span className="hidden lg:inline-flex items-center gap-2 rounded-full border border-ms-green-100 bg-ms-green-50 px-4 py-2 text-sm font-semibold text-ms-green-700">
+          <span className="hidden xl:inline-flex items-center gap-2 rounded-full border border-ms-green-100 bg-ms-green-50 px-4 py-2 text-sm font-semibold text-ms-green-700">
             <FiCheckCircle aria-hidden="true" />
             Corretora autorizada MedSênior
           </span>
