@@ -201,7 +201,7 @@ export const ELEGIBILIDADE = {
     'Padrasto e madrasta',
     'Sogro e sogra',
     'Avô e avó',
-    'Bisavô e bisavá',
+    'Bisavô e bisavó',
     'Tio e tia',
   ],
   documentosTitular: [
