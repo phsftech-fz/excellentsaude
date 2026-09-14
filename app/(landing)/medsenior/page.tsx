@@ -7,6 +7,8 @@ import WhyMedSenior from '@/components/medsenior/WhyMedSenior'
 import Plans from '@/components/medsenior/Plans'
 import Eligibility from '@/components/medsenior/Eligibility'
 import HowItWorks from '@/components/medsenior/HowItWorks'
+import Carencias from '@/components/medsenior/Carencias'
+import Unit from '@/components/medsenior/Unit'
 
 export default function MedSeniorPage() {
   return (
@@ -19,6 +21,8 @@ export default function MedSeniorPage() {
         <Plans />
         <Eligibility />
         <HowItWorks />
+        <Carencias />
+        <Unit />
       </main>
       <LpFooter />
       <StickyWhatsApp />
