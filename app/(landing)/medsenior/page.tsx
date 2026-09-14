@@ -9,6 +9,9 @@ import Eligibility from '@/components/medsenior/Eligibility'
 import HowItWorks from '@/components/medsenior/HowItWorks'
 import Carencias from '@/components/medsenior/Carencias'
 import Unit from '@/components/medsenior/Unit'
+import WhyExcellent from '@/components/medsenior/WhyExcellent'
+import Faq from '@/components/medsenior/Faq'
+import FinalCta from '@/components/medsenior/FinalCta'
 
 export default function MedSeniorPage() {
   return (
@@ -23,6 +26,9 @@ export default function MedSeniorPage() {
         <HowItWorks />
         <Carencias />
         <Unit />
+        <WhyExcellent />
+        <Faq />
+        <FinalCta />
       </main>
       <LpFooter />
       <StickyWhatsApp />
