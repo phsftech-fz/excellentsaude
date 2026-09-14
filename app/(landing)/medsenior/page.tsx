@@ -2,6 +2,8 @@ import LpHeader from '@/components/medsenior/LpHeader'
 import LpFooter from '@/components/medsenior/LpFooter'
 import StickyWhatsApp from '@/components/medsenior/StickyWhatsApp'
 import Hero from '@/components/medsenior/Hero'
+import TrustBar from '@/components/medsenior/TrustBar'
+import WhyMedSenior from '@/components/medsenior/WhyMedSenior'
 
 export default function MedSeniorPage() {
   return (
@@ -9,6 +11,8 @@ export default function MedSeniorPage() {
       <LpHeader />
       <main id="topo" className="pb-24 md:pb-0">
         <Hero />
+        <TrustBar />
+        <WhyMedSenior />
       </main>
       <LpFooter />
       <StickyWhatsApp />
