@@ -25,8 +25,16 @@ export default function LpHeader() {
             alt="MedSênior"
             width={900}
             height={311}
-            className="h-8 sm:h-12 w-auto shrink-0"
+            className="relative -top-0.5 sm:-top-1 h-8 sm:h-12 w-auto shrink-0"
             priority
+          />
+          <span aria-hidden="true" className="hidden md:block h-7 sm:h-8 w-px bg-ms-green-100" />
+          <Image
+            src="/medsenior/logo-g2c.png"
+            alt="G2C Administradora de Benefícios"
+            width={400}
+            height={400}
+            className="hidden md:block h-11 w-11 rounded-lg shrink-0"
           />
         </div>
 
