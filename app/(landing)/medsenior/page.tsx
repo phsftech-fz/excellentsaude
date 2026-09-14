@@ -5,6 +5,8 @@ import Hero from '@/components/medsenior/Hero'
 import TrustBar from '@/components/medsenior/TrustBar'
 import WhyMedSenior from '@/components/medsenior/WhyMedSenior'
 import Plans from '@/components/medsenior/Plans'
+import Eligibility from '@/components/medsenior/Eligibility'
+import HowItWorks from '@/components/medsenior/HowItWorks'
 
 export default function MedSeniorPage() {
   return (
@@ -15,6 +17,8 @@ export default function MedSeniorPage() {
         <TrustBar />
         <WhyMedSenior />
         <Plans />
+        <Eligibility />
+        <HowItWorks />
       </main>
       <LpFooter />
       <StickyWhatsApp />
