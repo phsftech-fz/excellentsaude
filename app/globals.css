@@ -30,3 +30,51 @@
   }
 }
 
+/* ===== Landing page MedSênior ===== */
+@layer components {
+  .ms-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  .ms-section {
+    @apply py-16 md:py-24;
+  }
+  .ms-btn {
+    @apply inline-flex items-center justify-center gap-2 min-h-[52px] px-6 rounded-full font-bold text-base leading-none transition-all duration-200 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-ms-lime/60;
+  }
+  .ms-btn-wa {
+    @apply bg-wa text-white shadow-lg shadow-wa/30 hover:bg-[#1fbf5b] hover:-translate-y-0.5;
+  }
+  .ms-btn-primary {
+    @apply bg-ms-green-700 text-white shadow-lg shadow-ms-green-700/25 hover:bg-ms-green-600 hover:-translate-y-0.5;
+  }
+  .ms-btn-outline {
+    @apply border-2 border-ms-green-700 text-ms-green-700 hover:bg-ms-green-50;
+  }
+  .ms-card {
+    @apply bg-white rounded-3xl rounded-tl-none border border-ms-green-100 shadow-sm;
+  }
+  .ms-eyebrow {
+    @apply inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-ms-green-600;
+  }
+  .ms-h2 {
+    @apply text-3xl md:text-4xl font-extrabold text-ms-green-900 leading-tight;
+  }
+}
+
+.ms-reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.ms-reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .ms-reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+

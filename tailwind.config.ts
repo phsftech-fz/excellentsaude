@@ -63,6 +63,25 @@ const config: Config = {
             900: '#212121',
           },
         },
+        // Paleta da landing page MedSênior (co-branding)
+        'ms': {
+          green: {
+            50: '#EEF7F1',
+            100: '#DDF1E4',
+            500: '#1E9E5A',
+            600: '#168A4E',
+            700: '#0F6B3F',
+            800: '#0D5233',
+            900: '#0B3D2E',
+          },
+          lime: '#9BD338',
+          cream: '#F4F8F3',
+          ink: '#122117',
+        },
+        'wa': '#25D366',
+      },
+      fontFamily: {
+        montserrat: ['var(--font-montserrat)', 'ui-sans-serif', 'system-ui', 'sans-serif'],
       },
     },
   },
