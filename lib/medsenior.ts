@@ -27,10 +27,21 @@ export function TEXTO_RESPONSABILIDADE(): string {
   return `O conteúdo deste site é de responsabilidade da ${identificacao} e não possui vínculo com a operadora de saúde.`
 }
 
+// Corretora autorizada MedSênior nesta parceria (a Excellent atua em conjunto)
+export const CORRETORA_AUTORIZADA = {
+  nome: 'Novo Rumo',
+  descricao: 'Corretora autorizada MedSênior',
+} as const
+
+export const ADMINISTRADORA = {
+  nome: 'G2C Administradora de Benefícios',
+  sigla: 'G2C',
+} as const
+
 export const OPERADORA = {
   nome: 'MedSênior',
   ans: '33.561-4',
-  redeUrl: 'https://medsenior.com.br/lp/',
+  redeUrl: 'https://guiamedico.medsenior.com.br/',
   fundacao: 2010,
 } as const
 
@@ -171,29 +182,12 @@ export const PLANOS: Plano[] = [
 export const FAIXAS_ETARIAS = ['44 a 48 anos', '49 a 53 anos', '54 a 58 anos', '59 anos ou mais'] as const
 
 export const ELEGIBILIDADE = {
-  assena: {
-    sigla: 'ASSENA',
-    titulo: 'Servidores públicos',
-    subtitulo: 'Estaduais e federais',
-    documentos: ['Holerite atualizado', 'Nomeação de cargo público', 'Ficha associativa'],
-    observacao: 'Taxa associativa simbólica.',
-  },
-  arpl: {
-    sigla: 'ARPL',
-    titulo: 'Profissionais liberais com diploma',
-    subtitulo: 'Associação Representativa de Profissionais Liberais',
-    documentos: ['Diploma', 'Ficha associativa', 'Carteira do conselho profissional'],
-    profissoes: [
-      'Administrador', 'Advogado', 'Agrônomo', 'Analista de Sistemas', 'Arquiteto', 'Assistente Social',
-      'Atuário', 'Bacharel em Ciência da Computação', 'Bacharel em Comércio Exterior',
-      'Bacharel em Comunicação Social', 'Bacharel em Gastronomia', 'Bacharel em Gestão Financeira',
-      'Bacharel em Hotelaria', 'Bacharel em Recursos Humanos', 'Biólogo', 'Biomédico', 'Contabilista',
-      'Corretor de Imóveis', 'Corretor de Seguros', 'Dentista', 'Designer (Gráfico, Moda e Interiores)',
-      'Despachante', 'Economista', 'Educador Físico', 'Enfermeiro', 'Engenheiro', 'Farmacêutico',
-      'Físico', 'Fisioterapeuta', 'Fonoaudiólogo', 'Jornalista', 'Marqueteiro', 'Matemático', 'Médico',
-      'Nutricionista', 'Pedagogo', 'Professor', 'Psicólogo', 'Publicitário',
-      'Tecnólogo da Informação', 'Veterinário',
-    ],
+  entidade: {
+    sigla: 'ASSGAPA',
+    titulo: 'Associação de Suboficiais e Sargentos da Guarnição de Aeronáutica de Porto Alegre',
+    subtitulo: 'Entidade de classe parceira desta oferta. A filiação é feita junto com a adesão ao plano.',
+    documentos: ['Ficha associativa'],
+    observacao: 'A Excellent envia a ficha e orienta o preenchimento.',
   },
   dependentes: [
     'Cônjuge ou companheiro(a)',
@@ -205,7 +199,7 @@ export const ELEGIBILIDADE = {
     'Tio e tia',
   ],
   documentosTitular: [
-    'Documento de elegibilidade (funcional ou da entidade de classe)',
+    'Ficha associativa da ASSGAPA',
     'RG e CPF',
     'Comprovante de residência (água, luz ou telefone)',
     'Cartão SUS',
@@ -220,7 +214,7 @@ export const PASSOS = [
   },
   {
     titulo: 'Envie os documentos',
-    texto: 'RG, CPF, comprovante de residência, cartão SUS, selfie com documento e comprovante de elegibilidade. A entrevista médica da MedSênior é feita online.',
+    texto: 'RG, CPF, comprovante de residência, cartão SUS, selfie com documento e ficha associativa da ASSGAPA. A entrevista médica da MedSênior é feita online.',
   },
   {
     titulo: 'Escolha a vigência e use',
@@ -269,7 +263,7 @@ export const AREA_COMERCIALIZACAO = {
 export const FAQ = [
   {
     pergunta: 'A partir de qual idade posso contratar?',
-    resposta: 'Os planos MedSênior por adesão em Porto Alegre são para pessoas a partir de 44 anos. Não há idade máxima para entrar.',
+    resposta: 'Os planos MedSênior por adesão em Porto Alegre são para pessoas a partir de 44 anos, com filiação à ASSGAPA feita junto com a adesão. Não há idade máxima para entrar.',
   },
   {
     pergunta: 'Os planos têm coparticipação?',
@@ -289,7 +283,7 @@ export const FAQ = [
   },
   {
     pergunta: 'Quais documentos preciso enviar?',
-    resposta: 'RG, CPF, comprovante de residência, cartão SUS, selfie segurando o documento e o comprovante de elegibilidade (holerite e nomeação para servidores; diploma e carteira do conselho para profissionais liberais).',
+    resposta: 'RG, CPF, comprovante de residência, cartão SUS, selfie segurando o documento e a ficha associativa da ASSGAPA, entidade de classe parceira desta oferta.',
   },
   {
     pergunta: 'Posso incluir dependentes?',
@@ -303,8 +297,8 @@ export const FAQ = [
 
 export const RAZOES_EXCELLENT = [
   {
-    titulo: 'Sem custo adicional',
-    texto: 'A consultoria da Excellent não muda o valor do plano. Você paga o mesmo que pagaria direto na operadora, com um especialista ao seu lado.',
+    titulo: 'Valor mais baixo pela parceria com a G2C',
+    texto: 'Nesta oferta, a adesão é feita pela G2C Administradora de Benefícios em parceria com a Novo Rumo, corretora autorizada MedSênior, o que garante condições melhores do que a contratação direta.',
   },
   {
     titulo: 'Consultor local, em Porto Alegre',

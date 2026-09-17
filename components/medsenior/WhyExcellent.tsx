@@ -17,8 +17,8 @@ export default function WhyExcellent() {
           <SectionHeading
             id="exc-title"
             eyebrow="Por que contratar pela Excellent"
-            title="Mesmo valor da operadora, com um especialista do seu lado"
-            lead="Somos uma corretora de Porto Alegre especializada em planos de saúde. Você fala com gente, não com robô."
+            title="Valor mais baixo pela parceria com a G2C, com um especialista do seu lado"
+            lead="Excellent Saúde e Novo Rumo, corretora autorizada MedSênior, juntas em Porto Alegre. Você fala com gente, não com robô."
           />
           <ul className="mt-8 space-y-5">
             {RAZOES_EXCELLENT.map((r) => (
