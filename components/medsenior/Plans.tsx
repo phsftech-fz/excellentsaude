@@ -1,6 +1,6 @@
 import { FaWhatsapp } from 'react-icons/fa'
-import { FiCheck, FiHome, FiMap, FiShield } from 'react-icons/fi'
-import { PLANOS, type Plano } from '@/lib/medsenior'
+import { FiCheck, FiExternalLink, FiHome, FiMap, FiSearch, FiShield } from 'react-icons/fi'
+import { OPERADORA, PLANOS, type Plano } from '@/lib/medsenior'
 import { buildWhatsAppUrl } from '@/lib/whatsapp'
 import Reveal from './Reveal'
 import SectionHeading from './SectionHeading'
@@ -71,7 +71,22 @@ export default function Plans() {
           ))}
         </div>
 
-        <p className="mx-auto mt-10 max-w-3xl text-center text-sm text-gray-600">
+        <Reveal delay={200}>
+          <div className="mx-auto mt-10 flex max-w-3xl flex-col items-center gap-4 rounded-3xl rounded-tl-none border border-ms-green-100 bg-white p-6 text-center sm:flex-row sm:text-left">
+            <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-ms-green-50 text-ms-green-700">
+              <FiSearch size={24} aria-hidden="true" />
+            </span>
+            <div className="flex-1">
+              <p className="font-bold text-ms-green-900">Quer ver os médicos e hospitais de cada plano?</p>
+              <p className="text-sm text-gray-600">O {OPERADORA.guiaNome} mostra a rede credenciada por cidade e plano, antes de você contratar.</p>
+            </div>
+            <a href={OPERADORA.redeUrl} target="_blank" rel="noopener noreferrer" className="ms-btn ms-btn-outline shrink-0">
+              Abrir o Guia Médico <FiExternalLink aria-hidden="true" />
+            </a>
+          </div>
+        </Reveal>
+
+        <p className="mx-auto mt-8 max-w-3xl text-center text-sm text-gray-600">
           Todos os planos são coletivos por adesão, com segmentação ambulatorial + hospitalar sem obstetrícia. Os valores variam por faixa etária e são informados pelo consultor. Reajuste anual em janeiro.
         </p>
       </div>

@@ -33,7 +33,7 @@ export default function LpFooter() {
               <li><Link className="hover:text-white underline-offset-4 hover:underline" href="/politica-privacidade">Política de Privacidade</Link></li>
               <li><Link className="hover:text-white underline-offset-4 hover:underline" href="/lgpd">LGPD e cookies</Link></li>
               <li><Link className="hover:text-white underline-offset-4 hover:underline" href="/termos-uso">Termos de Uso</Link></li>
-              <li><a className="hover:text-white underline-offset-4 hover:underline" href={OPERADORA.redeUrl} target="_blank" rel="noopener noreferrer">Rede credenciada {OPERADORA.nome}</a></li>
+              <li><a className="hover:text-white underline-offset-4 hover:underline" href={OPERADORA.redeUrl} target="_blank" rel="noopener noreferrer">{OPERADORA.guiaNome} (rede credenciada)</a></li>
             </ul>
             <p className="mt-4 text-xs text-ms-green-100/70">{OPERADORA.nome} — ANS nº {OPERADORA.ans}</p>
           </div>

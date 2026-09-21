@@ -17,11 +17,22 @@ export default function Unit() {
             title="Unidade própria MedSênior em Porto Alegre e rede em 8 estados"
             lead="Pronto atendimento, consultas e exames em unidade própria da operadora, além de hospitais credenciados. A rede é disponibilizada conforme o plano contratado."
           />
-          <div className="mt-8 flex flex-wrap gap-3">
-            <a href={OPERADORA.redeUrl} target="_blank" rel="noopener noreferrer" className="ms-btn ms-btn-outline">
-              Consultar rede credenciada <FiExternalLink aria-hidden="true" />
+          <div className="mt-8 rounded-3xl rounded-tl-none border border-ms-green-100 bg-white p-6">
+            <p className="font-bold text-ms-green-900">Confira a cobertura no {OPERADORA.guiaNome}</p>
+            <ol className="mt-3 space-y-2 text-sm text-gray-700">
+              {OPERADORA.guiaPassos.map((passo, i) => (
+                <li key={passo} className="flex items-start gap-3">
+                  <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-ms-green-50 text-xs font-bold text-ms-green-700">{i + 1}</span>
+                  {passo}
+                </li>
+              ))}
+            </ol>
+          </div>
+          <div className="mt-6 flex flex-wrap gap-3">
+            <a href={OPERADORA.redeUrl} target="_blank" rel="noopener noreferrer" className="ms-btn ms-btn-primary">
+              Abrir o Guia Médico <FiExternalLink aria-hidden="true" />
             </a>
-            <a href={buildWhatsAppUrl({ origem: 'unidade' })} target="_blank" rel="noopener noreferrer" className="ms-btn ms-btn-wa">
+            <a href={buildWhatsAppUrl({ origem: 'unidade' })} target="_blank" rel="noopener noreferrer" className="ms-btn ms-btn-outline">
               <FaWhatsapp size={20} aria-hidden="true" /> Tirar dúvidas sobre a rede
             </a>
           </div>

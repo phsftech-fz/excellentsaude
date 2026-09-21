@@ -41,7 +41,10 @@ export const ADMINISTRADORA = {
 export const OPERADORA = {
   nome: 'MedSênior',
   ans: '33.561-4',
-  redeUrl: 'https://guiamedico.medsenior.com.br/',
+  // Guia Médico oficial (rede credenciada). ?etapa=1 abre direto na escolha do estado.
+  redeUrl: 'https://guiamedico.medsenior.com.br/?etapa=1',
+  guiaNome: 'Guia Médico MedSênior',
+  guiaPassos: ['Escolha o estado e a cidade', 'Selecione o plano (ex.: Black Adesão 5)', 'Busque médico, hospital, exame ou especialidade'],
   fundacao: 2010,
 } as const
 
@@ -274,6 +277,11 @@ export const FAQ = [
     resposta: 'O valor depende do plano e da faixa etária (44 a 48, 49 a 53, 54 a 58 e 59 anos ou mais). Chame no WhatsApp e receba a cotação atualizada em minutos, sem compromisso.',
   },
   {
+    pergunta: 'Posso ver se meu médico ou hospital está na rede antes de contratar?',
+    resposta: 'Sim. O Guia Médico oficial da MedSênior mostra médicos, hospitais, laboratórios e exames de cada plano. Escolha o estado e a cidade, selecione o plano e pesquise pelo nome ou especialidade. Se preferir, o consultor da Excellent confere para você.',
+    link: { texto: 'Abrir o Guia Médico MedSênior', url: 'https://guiamedico.medsenior.com.br/?etapa=1' },
+  },
+  {
     pergunta: 'Como funciona a carência?',
     resposta: 'Urgência e emergência em 24 horas; consultas e exames simples em 30 dias; internações em 180 dias. Quem já tem plano há pelo menos 6 meses pode reduzir quase todas as carências para 24 horas.',
   },
@@ -292,6 +300,7 @@ export const FAQ = [
   {
     pergunta: 'Onde posso usar o plano?',
     resposta: 'Os planos Adesão Enfermaria e Apartamento atendem em Porto Alegre. Black Adesão 5 e Infinite Adesão têm rede em capitais e regiões de RS, SP, RJ, MG, ES, PR, DF e PE. Urgência e emergência são cobertas conforme a regulamentação da ANS.',
+    link: { texto: 'Consultar médicos e hospitais no Guia Médico MedSênior', url: 'https://guiamedico.medsenior.com.br/?etapa=1' },
   },
 ] as const
 

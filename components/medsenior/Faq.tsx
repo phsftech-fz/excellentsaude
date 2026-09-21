@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { FiChevronDown } from 'react-icons/fi'
+import { FiChevronDown, FiExternalLink } from 'react-icons/fi'
 import { FAQ } from '@/lib/medsenior'
 import SectionHeading from './SectionHeading'
 
@@ -34,6 +34,11 @@ export default function Faq() {
                 </h3>
                 <div id={panelId} role="region" aria-labelledby={btnId} hidden={!isOpen} className="px-6 pb-6 leading-relaxed text-gray-700">
                   {item.resposta}
+                  {'link' in item && item.link && (
+                    <a href={item.link.url} target="_blank" rel="noopener noreferrer" className="mt-3 inline-flex items-center gap-1.5 font-semibold text-ms-green-700 underline-offset-4 hover:underline">
+                      {item.link.texto} <FiExternalLink aria-hidden="true" />
+                    </a>
+                  )}
                 </div>
               </div>
             )
