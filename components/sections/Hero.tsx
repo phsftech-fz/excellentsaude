@@ -46,7 +46,7 @@ export default function Hero() {
     window.open(`https://wa.me/5551995567277?text=${mensagemWhatsAppEncoded}`, '_blank')
     
     // Redireciona para Email
-    window.open(`mailto:atendimento@excellentsaude.com.br?subject=${assuntoEmail}&body=${mensagemEmailEncoded}`, '_blank')
+    window.open(`mailto:comercial@excellentsaude.com.br?subject=${assuntoEmail}&body=${mensagemEmailEncoded}`, '_blank')
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {

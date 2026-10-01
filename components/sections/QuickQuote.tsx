@@ -65,7 +65,7 @@ export default function QuickQuote() {
     window.open(`https://wa.me/5551995567277?text=${mensagemWhatsAppEncoded}`, '_blank')
     
     // Redireciona para Email
-    window.open(`mailto:atendimento@excellentsaude.com.br?subject=${assuntoEmail}&body=${mensagemEmailEncoded}`, '_blank')
+    window.open(`mailto:comercial@excellentsaude.com.br?subject=${assuntoEmail}&body=${mensagemEmailEncoded}`, '_blank')
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
@@ -278,11 +278,11 @@ export default function QuickQuote() {
                   <span className="font-semibold">WhatsApp: (51) 99782-3523</span>
                 </a>
                 <a
-                  href="mailto:atendimento@excellentsaude.com.br"
+                  href="mailto:comercial@excellentsaude.com.br"
                   className="flex items-center space-x-2 text-excellent-navy-900 hover:text-excellent-blue-600 transition-colors"
                 >
                   <FiMail size={20} />
-                  <span className="font-semibold">atendimento@excellentsaude.com.br</span>
+                  <span className="font-semibold">comercial@excellentsaude.com.br</span>
                 </a>
               </div>
             </div>
