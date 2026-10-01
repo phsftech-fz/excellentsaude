@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { FiArrowRight, FiPhone, FiMail } from 'react-icons/fi'
+import { postLead } from '@/lib/enviarLead'
 
 export default function QuickQuote() {
   const [formData, setFormData] = useState({
@@ -15,10 +16,15 @@ export default function QuickQuote() {
     cnpj: '',
     operadora: '',
     mensagem: '',
+    website: '',
   })
+  const [enviando, setEnviando] = useState(false)
+  const [enviado, setEnviado] = useState(false)
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    if (enviando) return
+    setEnviando(true)
     
     // Formata a mensagem para WhatsApp (com formatação markdown)
     let mensagemWhatsApp = '*Nova Solicitação de Cotação*\n\n'
@@ -61,11 +67,35 @@ export default function QuickQuote() {
     const mensagemEmailEncoded = encodeURIComponent(mensagemEmail)
     const assuntoEmail = encodeURIComponent('Nova Solicitação de Cotação')
     
-    // Redireciona para WhatsApp
+    const campos: Array<[string, string]> = [
+      ['Nome', formData.nome],
+      ['Telefone', formData.telefone],
+      ['E-mail', formData.email],
+      ['Número de Vidas', formData.numeroVidas],
+      ['Perfil', formData.perfil === 'pessoa-fisica' ? 'Pessoa Física' : 'CNPJ/MEI'],
+      ['CNPJ', formData.cnpj],
+      ['Plano Selecionado', formData.operadora],
+      ['Mensagem', formData.mensagem],
+    ].filter((par): par is [string, string] => Boolean(par[1]))
+
+    const enviouPorEmail = await postLead({
+      origem: 'Cotação completa (home)',
+      nome: formData.nome,
+      email: formData.email,
+      campos,
+      website: formData.website,
+    })
+
+    // WhatsApp sempre: é o canal preferido para falar na hora.
     window.open(`https://wa.me/5551995567277?text=${mensagemWhatsAppEncoded}`, '_blank')
-    
-    // Redireciona para Email
-    window.open(`mailto:comercial@excellentsaude.com.br?subject=${assuntoEmail}&body=${mensagemEmailEncoded}`, '_blank')
+
+    // Só abre o rascunho de e-mail se o envio pelo servidor não funcionou.
+    if (!enviouPorEmail) {
+      window.open(`mailto:comercial@excellentsaude.com.br?subject=${assuntoEmail}&body=${mensagemEmailEncoded}`, '_blank')
+    }
+
+    setEnviando(false)
+    setEnviado(true)
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
@@ -89,7 +119,7 @@ export default function QuickQuote() {
           </div>
 
           <div className="bg-white rounded-2xl shadow-2xl p-8 md:p-12 text-gray-900">
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form onSubmit={handleSubmit} className="relative space-y-6">
               <div>
                 <label htmlFor="cotacao-nome" className="block text-sm font-medium text-gray-700 mb-2">
                   Nome *
@@ -231,13 +261,26 @@ export default function QuickQuote() {
               </div>
 
 
+              {/* Honeypot: invisível para pessoas, preenchido por robôs */}
+              <div className="absolute left-[-9999px]" aria-hidden="true">
+                <label htmlFor="website-cotacao">Não preencha este campo</label>
+                <input type="text" id="website-cotacao" name="website" tabIndex={-1} autoComplete="off" value={formData.website} onChange={handleChange} />
+              </div>
+
               <button
                 type="submit"
-                className="w-full btn-secondary flex items-center justify-center space-x-2"
+                disabled={enviando}
+                className="w-full btn-secondary flex items-center justify-center space-x-2 disabled:opacity-70"
               >
-                <span>Enviar Solicitação de Cotação</span>
-                <FiArrowRight />
+                <span>{enviando ? 'Enviando...' : 'Enviar Solicitação de Cotação'}</span>
+                {!enviando && <FiArrowRight />}
               </button>
+
+              {enviado && (
+                <p role="status" className="rounded-lg bg-excellent-green-50 px-4 py-3 text-center text-sm font-semibold text-excellent-green-700">
+                  Recebemos sua solicitação! Em breve um consultor entra em contato.
+                </p>
+              )}
 
               <div className="flex items-start space-x-2">
                 <input

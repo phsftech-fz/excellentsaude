@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { FiCheck, FiArrowRight } from 'react-icons/fi'
+import { postLead } from '@/lib/enviarLead'
 
 export default function Hero() {
   const [formData, setFormData] = useState({
@@ -10,10 +11,15 @@ export default function Hero() {
     nome: '',
     email: '',
     telefone: '',
+    website: '',
   })
+  const [enviando, setEnviando] = useState(false)
+  const [enviado, setEnviado] = useState(false)
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    if (enviando) return
+    setEnviando(true)
     
     const tipoPlanoMap: { [key: string]: string } = {
       'coletivo': 'Coletivos por Adesão',
@@ -42,11 +48,32 @@ export default function Hero() {
     const mensagemEmailEncoded = encodeURIComponent(mensagemEmail)
     const assuntoEmail = encodeURIComponent('Nova Solicitação de Cotação')
     
-    // Redireciona para WhatsApp
+    const campos: Array<[string, string]> = [
+      ['Nome', formData.nome],
+      ['E-mail', formData.email],
+      ['Telefone', formData.telefone],
+      ['Estado', formData.estado],
+      ['Tipo de Plano', tipoPlanoMap[formData.tipoPlano] || formData.tipoPlano],
+    ]
+
+    const enviouPorEmail = await postLead({
+      origem: 'Cotação rápida (home)',
+      nome: formData.nome,
+      email: formData.email,
+      campos,
+      website: formData.website,
+    })
+
+    // WhatsApp sempre: é o canal preferido para falar na hora.
     window.open(`https://wa.me/5551995567277?text=${mensagemWhatsAppEncoded}`, '_blank')
-    
-    // Redireciona para Email
-    window.open(`mailto:comercial@excellentsaude.com.br?subject=${assuntoEmail}&body=${mensagemEmailEncoded}`, '_blank')
+
+    // Só abre o rascunho de e-mail se o envio pelo servidor não funcionou.
+    if (!enviouPorEmail) {
+      window.open(`mailto:comercial@excellentsaude.com.br?subject=${assuntoEmail}&body=${mensagemEmailEncoded}`, '_blank')
+    }
+
+    setEnviando(false)
+    setEnviado(true)
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
@@ -105,7 +132,7 @@ export default function Hero() {
             <h2 className="text-2xl font-bold mb-2 text-excellent-navy-900">Solicite sua cotação agora!</h2>
             <p className="text-gray-600 mb-6">Preencha o formulário e receba uma cotação personalizada</p>
             
-            <form onSubmit={handleSubmit} className="space-y-4">
+            <form onSubmit={handleSubmit} className="relative space-y-4">
               <div>
                 <label htmlFor="estado" className="block text-sm font-medium text-gray-700 mb-2">
                   Selecione seu Estado
@@ -202,13 +229,26 @@ export default function Hero() {
                 />
               </div>
 
+              {/* Honeypot: invisível para pessoas, preenchido por robôs */}
+              <div className="absolute left-[-9999px]" aria-hidden="true">
+                <label htmlFor="website-hero">Não preencha este campo</label>
+                <input type="text" id="website-hero" name="website" tabIndex={-1} autoComplete="off" value={formData.website} onChange={handleChange} />
+              </div>
+
               <button
                 type="submit"
-                className="w-full btn-primary flex items-center justify-center space-x-2"
+                disabled={enviando}
+                className="w-full btn-primary flex items-center justify-center space-x-2 disabled:opacity-70"
               >
-                <span>Solicitar Cotação</span>
-                <FiArrowRight />
+                <span>{enviando ? 'Enviando...' : 'Solicitar Cotação'}</span>
+                {!enviando && <FiArrowRight />}
               </button>
+
+              {enviado && (
+                <p role="status" className="rounded-lg bg-excellent-green-50 px-4 py-3 text-center text-sm font-semibold text-excellent-green-700">
+                  Recebemos sua solicitação! Em breve um consultor entra em contato.
+                </p>
+              )}
 
               <p className="text-xs text-gray-500 text-center">
                 Ao enviar, você concorda com nossa Política de Privacidade

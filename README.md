@@ -72,6 +72,27 @@ npm start
 - Blog para conteúdo SEO
 - Integração com Google Analytics
 
+## 📧 Envio dos leads por e-mail
+
+Os formulários (home, cotação completa e LP MedSênior) postam em `/api/lead`, que envia
+o lead por SMTP para `comercial@excellentsaude.com.br`. O botão do WhatsApp continua
+abrindo normalmente.
+
+Variáveis de ambiente (cadastrar no Easypanel — serviço `excellent-saude-web` > Ambiente):
+
+| Variável | Valor |
+|---|---|
+| `SMTP_HOST` | `smtp.hostinger.com` |
+| `SMTP_PORT` | `465` |
+| `SMTP_USER` | `comercial@excellentsaude.com.br` |
+| `SMTP_PASSWORD` | senha da caixa de e-mail |
+| `LEAD_TO` | `comercial@excellentsaude.com.br` |
+
+Enquanto `SMTP_USER`/`SMTP_PASSWORD` não estiverem definidas, os formulários voltam ao
+comportamento antigo (WhatsApp + rascunho de e-mail no programa do visitante), sem quebrar.
+
+Proteções: campo honeypot invisível e limite de 20 envios por IP a cada 10 minutos.
+
 ## 🌐 Deploy
 
 O site pode ser deployado em:

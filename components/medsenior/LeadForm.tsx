@@ -5,6 +5,7 @@ import { FaWhatsapp } from 'react-icons/fa'
 import { FiLock } from 'react-icons/fi'
 import { FAIXAS_ETARIAS } from '@/lib/medsenior'
 import { buildWhatsAppUrl, formatPhone, onlyDigits, type OrigemLead } from '@/lib/whatsapp'
+import { postLead } from '@/lib/enviarLead'
 
 type Props = { origem: OrigemLead; compact?: boolean; plano?: string }
 
@@ -16,6 +17,8 @@ export default function LeadForm({ origem, compact = false, plano }: Props) {
   const [faixaEtaria, setFaixaEtaria] = useState('')
   const [cidade, setCidade] = useState('')
   const [temPlano, setTemPlano] = useState('')
+  const [website, setWebsite] = useState('')
+  const [enviando, setEnviando] = useState(false)
   const [errors, setErrors] = useState<Errors>({})
 
   const idPrefix = `lead-${origem}`
@@ -29,11 +32,26 @@ export default function LeadForm({ origem, compact = false, plano }: Props) {
     return e
   }
 
-  function handleSubmit(ev: FormEvent) {
+  async function handleSubmit(ev: FormEvent) {
     ev.preventDefault()
     const e = validate()
     setErrors(e)
     if (Object.keys(e).length > 0) return
+    if (enviando) return
+    setEnviando(true)
+
+    // Registra o lead por e-mail antes de abrir o WhatsApp, para não depender da conversa acontecer.
+    const campos: Array<[string, string]> = [
+      ['Nome', nome],
+      ['WhatsApp', telefone],
+      ['Faixa etária', faixaEtaria],
+      ['Cidade', cidade],
+      ['Já tem plano', temPlano],
+      ['Plano de interesse', plano ?? ''],
+      ['Origem', `LP MedSênior/${origem}`],
+    ].filter((par): par is [string, string] => Boolean(par[1]))
+    await postLead({ origem: 'LP MedSênior', nome, campos, website })
+    setEnviando(false)
 
     const url = buildWhatsAppUrl({ nome, telefone, faixaEtaria, cidade, temPlano, plano, origem })
     const win = window.open(url, '_blank')
@@ -50,7 +68,7 @@ export default function LeadForm({ origem, compact = false, plano }: Props) {
   const errCls = 'mt-1 text-sm text-red-600'
 
   return (
-    <form onSubmit={handleSubmit} noValidate className="space-y-4" aria-label="Solicitar cotação MedSênior">
+    <form onSubmit={handleSubmit} noValidate className="relative space-y-4" aria-label="Solicitar cotação MedSênior">
       <div>
         <label htmlFor={`${idPrefix}-nome`} className={labelCls}>Nome *</label>
         <input
@@ -136,9 +154,15 @@ export default function LeadForm({ origem, compact = false, plano }: Props) {
         </div>
       )}
 
-      <button type="submit" className="ms-btn ms-btn-wa w-full text-lg">
+      {/* Honeypot: invisível para pessoas, preenchido por robôs */}
+      <div className="absolute left-[-9999px]" aria-hidden="true">
+        <label htmlFor={`${idPrefix}-website`}>Não preencha este campo</label>
+        <input type="text" id={`${idPrefix}-website`} name="website" tabIndex={-1} autoComplete="off" value={website} onChange={(ev) => setWebsite(ev.target.value)} />
+      </div>
+
+      <button type="submit" disabled={enviando} className="ms-btn ms-btn-wa w-full text-lg disabled:opacity-70">
         <FaWhatsapp size={24} aria-hidden="true" />
-        Receber cotação no WhatsApp
+        {enviando ? 'Enviando...' : 'Receber cotação no WhatsApp'}
       </button>
 
       <p className="flex items-start gap-2 text-xs text-gray-500">
