@@ -86,7 +86,7 @@ export default function Footer() {
               </li>
               <li className="flex items-center space-x-2">
                 <FiMail className="text-excellent-green-500" size={18} />
-                <a href="mailto:atendimento@excellentsaude.com.br" className="text-gray-300 hover:text-excellent-green-500 transition-colors text-sm">E-mail</a>
+                <a href="mailto:atendimento@excellentsaude.com.br" className="text-gray-300 hover:text-excellent-green-500 transition-colors text-sm">atendimento@excellentsaude.com.br</a>
               </li>
               <li className="mt-2">
                 <p className="text-gray-400 text-xs">

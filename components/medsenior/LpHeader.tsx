@@ -19,8 +19,14 @@ export default function LpHeader() {
           <Image src="/logoexcellent.png.bv.webp" alt="Excellent Saúde" width={180} height={60} className="h-8 sm:h-11 w-auto" />
           <span className="hidden sm:inline text-ms-green-100 text-xl font-light" aria-hidden="true">+</span>
           <span className="leading-none">
-            <span className="block text-base sm:text-lg font-extrabold tracking-tight text-excellent-navy-500">{CORRETORA_AUTORIZADA.nome}</span>
-            <span className="block max-w-[7.5rem] sm:max-w-none text-[10px] sm:text-[11px] font-semibold uppercase leading-tight tracking-wider text-ms-green-700">{CORRETORA_AUTORIZADA.descricao}</span>
+            <Image
+              src="/medsenior/logo-novo-rumo.png"
+              alt={CORRETORA_AUTORIZADA.nome}
+              width={561}
+              height={144}
+              className="h-7 sm:h-9 w-auto"
+            />
+            <span className="mt-1 block max-w-[7.5rem] sm:max-w-none text-[10px] sm:text-[11px] font-semibold uppercase leading-tight tracking-wider text-ms-green-700">{CORRETORA_AUTORIZADA.descricao}</span>
           </span>
         </a>
 
