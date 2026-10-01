@@ -8,7 +8,7 @@ import { WHATSAPP_NUMBER } from './whatsapp'
 export const CONTATO = {
   whatsapp: WHATSAPP_NUMBER,
   whatsappFormatado: '(51) 99556-7277',
-  email: 'atendimento@excellentsaude.com.br',
+  email: 'comercial@excellentsaude.com.br',
   endereco: 'Av. Praia de Belas, 1212 – Sala 424 – Menino Deus – Porto Alegre/RS – CEP 90110-000',
   susep: '202083498',
   instagram: 'https://www.instagram.com/excellentsaude/',
